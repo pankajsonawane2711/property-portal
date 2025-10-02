@@ -1,0 +1,48 @@
+    {% extends "base.html" %}
+    {% block content %}
+    <section class="bg-gray-50 border-b">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <h1 class="text-3xl md:text-4xl font-bold">Find your next home in Vasai–Virar</h1>
+        <form action="/properties/" class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-3">
+          <input name="q" placeholder="Search..." class="border rounded px-3 py-2">
+          <input name="location" placeholder="Location" class="border rounded px-3 py-2">
+          <select name="bhk" class="border rounded px-3 py-2">
+            <option value="">BHK</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+          </select>
+          <button class="bg-blue-600 text-white rounded px-4">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 py-10">
+      <h2 class="text-xl font-semibold mb-4">Featured</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {% for p in featured %}
+        <a href="{{ p.get_absolute_url }}" class="border rounded overflow-hidden hover:shadow">
+          <img src="https://picsum.photos/seed/{{p.slug}}/600/360" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <div class="font-semibold">{{ p.title }}</div>
+            <div class="text-sm text-gray-600">₹ {{ p.price|intcomma }} · {{ p.bhk }} BHK · {{ p.location }}</div>
+          </div>
+        </a>
+        {% empty %}<div>No featured properties yet.</div>{% endfor %}
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 pb-12">
+      <h2 class="text-xl font-semibold mb-4">Latest</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {% for p in latest %}
+        <a href="{{ p.get_absolute_url }}" class="border rounded overflow-hidden hover:shadow">
+          <img src="https://picsum.photos/seed/{{p.slug}}/600/360" class="w-full h-40 object-cover">
+          <div class="p-3">
+            <div class="font-semibold text-sm">{{ p.title }}</div>
+            <div class="text-xs text-gray-600">₹ {{ p.price|intcomma }} · {{ p.bhk }} BHK · {{ p.location }}</div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endblock %}
+    

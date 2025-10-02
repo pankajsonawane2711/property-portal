@@ -1,0 +1,26 @@
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="max-w-5xl mx-auto px-4 py-10">
+      <div class="flex items-center justify-between mb-4">
+        <h1 class="text-2xl font-semibold">My Listings</h1>
+        <a href="/properties/add/" class="bg-emerald-600 text-white px-3 py-2 rounded">Add Property</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {% for p in properties %}
+        <div class="border rounded overflow-hidden">
+          <img src="https://picsum.photos/seed/{{p.slug}}/600/360" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <div class="font-semibold">{{ p.title }}</div>
+            <div class="text-sm text-gray-600">₹ {{ p.price|intcomma }} · {{ p.bhk }} BHK · {{ p.location }}</div>
+            <div class="text-xs mt-1">Approved: {{ p.is_approved }}</div>
+            <div class="mt-2 flex gap-2">
+              <a href="/properties/{{p.slug}}/edit/" class="text-blue-600 text-sm">Edit</a>
+              <a href="{{ p.get_absolute_url }}" class="text-sm">View</a>
+            </div>
+          </div>
+        </div>
+        {% empty %}<div>No listings yet.</div>{% endfor %}
+      </div>
+    </div>
+    {% endblock %}
+    

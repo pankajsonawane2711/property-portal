@@ -1,0 +1,11 @@
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="max-w-2xl mx-auto px-4 py-10">
+      <h1 class="text-2xl font-semibold mb-4">{% if edit %}Edit{% else %}Add{% endif %} Property</h1>
+      <form method="post" class="grid gap-3">{% csrf_token %}
+        {{ form.as_p }}
+        <button class="bg-emerald-600 text-white px-4 py-2 rounded">{% if edit %}Update{% else %}Submit{% endif %}</button>
+      </form>
+    </div>
+    {% endblock %}
+    

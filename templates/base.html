@@ -1,0 +1,63 @@
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{% block title %}CodViz Properties - Vasai–Virar{% endblock %}</title>
+      <meta name="description" content="{% block meta_description %}Find flats, villas, and properties in Vasai–Virar.{% endblock %}">
+      <meta property="og:title" content="{% block og_title %}CodViz Properties{% endblock %}">
+      <meta property="og:description" content="{% block og_desc %}Verified listings with direct builder contact.{% endblock %}">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="{{ request.build_absolute_uri }}">
+      <meta property="og:image" content="{{ request.build_absolute_uri|slice:':-1' }}/static/og.jpg">
+      <meta name="twitter:card" content="summary_large_image">
+
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    </head>
+    <body class="min-h-screen flex flex-col">
+      <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <a href="/" class="font-bold text-xl">CodViz Properties</a>
+          <nav class="hidden md:flex gap-6 text-sm">
+            <a href="/" class="hover:text-blue-600">Home</a>
+            <a href="/properties/" class="hover:text-blue-600">Properties</a>
+            <a href="/about/" class="hover:text-blue-600">About</a>
+            <a href="/faq/" class="hover:text-blue-600">FAQs</a>
+            <a href="/emi/" class="hover:text-blue-600">EMI Calculator</a>
+            <a href="/contact/" class="hover:text-blue-600">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            {% if request.user.is_authenticated %}
+              {% if request.user.is_builder %}
+                <a href="/properties/mine/" class="px-3 py-1.5 rounded bg-emerald-600 text-white text-sm">Builder Dashboard</a>
+              {% endif %}
+              <a href="/logout/" class="px-3 py-1.5 rounded border text-sm">Logout</a>
+            {% else %}
+              <a href="/signup/" class="px-3 py-1.5 rounded border text-sm">Sign Up</a>
+              <a href="/login/" class="px-3 py-1.5 rounded bg-blue-600 text-white text-sm">Login</a>
+            {% endif %}
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1">
+        {% block content %}{% endblock %}
+      </main>
+
+      <footer class="border-t">
+        <div class="max-w-6xl mx-auto px-4 py-6 text-sm flex flex-col md:flex-row gap-4 md:gap-8 justify-between">
+          <div>© 2025 CodViz Properties · All Rights Reserved.</div>
+          <div class="flex gap-4">
+            <a href="/properties/">Properties</a>
+            <a href="/about/">About</a>
+            <a href="/contact/">Contact</a>
+            <a href="/faq/">FAQs</a>
+            <a href="/emi/">EMI</a>
+          </div>
+        </div>
+      </footer>
+    </body>
+    </html>
+    

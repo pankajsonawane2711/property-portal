@@ -1,0 +1,49 @@
+    {% extends "base.html" %}
+    {% block title %}{{ p.title }}{% endblock %}
+    {% block content %}
+    <div class="max-w-5xl mx-auto px-4 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2">
+          <img src="https://picsum.photos/seed/{{p.slug}}/900/500" class="w-full rounded">
+          <h1 class="text-2xl font-bold mt-4">{{ p.title }}</h1>
+          <p class="text-gray-600 mt-1">₹ {{ p.price|intcomma }} · {{ p.bhk }} BHK · {{ p.size_sqft }} sqft · {{ p.location }}</p>
+          <div class="prose mt-4">{{ p.description }}</div>
+          <h3 class="font-semibold mt-6">Amenities</h3>
+          <ul class="list-disc pl-6 text-sm">
+            {% for a in p.amenities.all %}<li>{{ a.name }}</li>{% empty %}<li>No amenities listed.</li>{% endfor %}
+          </ul>
+          <h3 class="font-semibold mt-6 mb-2">Location</h3>
+          <div id="map" style="height: 320px;" class="rounded border"></div>
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              const map = L.map('map').setView([{{ p.latitude }}, {{ p.longitude }}], 14);
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(map);
+              L.marker([{{ p.latitude }}, {{ p.longitude }}]).addTo(map).bindPopup("{{ p.title|escapejs }}");
+            });
+          </script>
+        </div>
+        <aside>
+          <div class="border rounded p-4 sticky top-24">
+<form method="post" action="/leads/create/" class="grid gap-2 mb-3">{% csrf_token %}<input type="hidden" name="property_id" value="{{ p.id }}"><input name="name" placeholder="Your name" class="border rounded px-3 py-2"><input name="phone" placeholder="Phone" class="border rounded px-3 py-2"><textarea name="message" placeholder="Message (optional)" class="border rounded px-3 py-2"></textarea><button class="bg-blue-600 text-white rounded px-3 py-2">Send Enquiry</button></form>
+            <div class="font-semibold mb-2">Contact Builder</div>
+            <a href="tel:+919999999999" class="block w-full text-center bg-emerald-600 text-white rounded px-4 py-2 mb-2">Call Now</a>
+            <a href="mailto:builder@example.com" class="block w-full text-center border rounded px-4 py-2 mb-2">Email</a>
+            <a href="https://wa.me/919999999999?text={{ request.build_absolute_uri|urlencode }}" target="_blank" class="block w-full text-center border rounded px-4 py-2">Share on WhatsApp</a>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="font-semibold mb-2">Similar</h3>
+            <div class="grid grid-cols-1 gap-3">
+              {% for s in similar %}
+              <a href="{{ s.get_absolute_url }}" class="border rounded p-3 hover:shadow">
+                <div class="font-medium text-sm">{{ s.title }}</div>
+                <div class="text-xs text-gray-600">₹ {{ s.price|intcomma }} · {{ s.bhk }} BHK</div>
+              </a>
+              {% empty %}No similar properties.{% endfor %}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    {% endblock %}
+    

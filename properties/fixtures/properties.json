@@ -1,0 +1,172 @@
+[
+  {
+    "model": "properties.property",
+    "pk": 1,
+    "fields": {
+      "title": "1 BHK Flat in Vasai West",
+      "slug": "property-1",
+      "price": 7500000,
+      "bhk": 1,
+      "size_sqft": 1250,
+      "location": "Vasai West",
+      "latitude": 19.504378,
+      "longitude": 72.778506,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": true
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 2,
+    "fields": {
+      "title": "1 BHK Flat in Vasai East",
+      "slug": "property-2",
+      "price": 8800000,
+      "bhk": 2,
+      "size_sqft": 600,
+      "location": "Vasai East",
+      "latitude": 19.574317,
+      "longitude": 72.945784,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": true
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 3,
+    "fields": {
+      "title": "3 BHK Flat in Virar West",
+      "slug": "property-3",
+      "price": 5000000,
+      "bhk": 2,
+      "size_sqft": 1250,
+      "location": "Virar West",
+      "latitude": 19.479526,
+      "longitude": 72.753262,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": true
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 4,
+    "fields": {
+      "title": "1 BHK Flat in Virar East",
+      "slug": "property-4",
+      "price": 4100000,
+      "bhk": 1,
+      "size_sqft": 900,
+      "location": "Virar East",
+      "latitude": 19.458462,
+      "longitude": 72.920864,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": true
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 5,
+    "fields": {
+      "title": "1 BHK Flat in Nalasopara",
+      "slug": "property-5",
+      "price": 7200000,
+      "bhk": 2,
+      "size_sqft": 720,
+      "location": "Nalasopara",
+      "latitude": 19.575595,
+      "longitude": 72.788489,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": false
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 6,
+    "fields": {
+      "title": "2 BHK Flat in Bolinj",
+      "slug": "property-6",
+      "price": 7900000,
+      "bhk": 3,
+      "size_sqft": 450,
+      "location": "Bolinj",
+      "latitude": 19.505124,
+      "longitude": 72.912768,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": false
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 7,
+    "fields": {
+      "title": "3 BHK Flat in Evershine City",
+      "slug": "property-7",
+      "price": 3700000,
+      "bhk": 2,
+      "size_sqft": 1100,
+      "location": "Evershine City",
+      "latitude": 19.575143,
+      "longitude": 72.815851,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": false
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 8,
+    "fields": {
+      "title": "3 BHK Flat in Ambadi",
+      "slug": "property-8",
+      "price": 8200000,
+      "bhk": 3,
+      "size_sqft": 1100,
+      "location": "Ambadi",
+      "latitude": 19.352646,
+      "longitude": 72.783672,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": false
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 9,
+    "fields": {
+      "title": "1 BHK Flat in Suncity",
+      "slug": "property-9",
+      "price": 4300000,
+      "bhk": 2,
+      "size_sqft": 600,
+      "location": "Suncity",
+      "latitude": 19.53098,
+      "longitude": 72.878552,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": false
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 10,
+    "fields": {
+      "title": "1 BHK Flat in Yashwant Nagar",
+      "slug": "property-10",
+      "price": 8800000,
+      "bhk": 3,
+      "size_sqft": 1250,
+      "location": "Yashwant Nagar",
+      "latitude": 19.379118,
+      "longitude": 72.775879,
+      "description": "Spacious flat with good connectivity. Dummy listing for demo.",
+      "is_active": true,
+      "is_featured": false
+    }
+  }
+]
